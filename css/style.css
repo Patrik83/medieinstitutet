@@ -1,0 +1,15 @@
+:root {
+  --bs-primary: #007bff;
+  --bs-secondary: #6c757d;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.icon {
+  color: #007bff; 
+  font-size: xx-large;
+  -webkit-text-stroke: 1px white; /* CSS hack för att få ikonen att se smalare ut */
+}
