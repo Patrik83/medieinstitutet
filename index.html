@@ -16,23 +16,25 @@
     <title>Nyhetsbyrån</title>
 </head>
 <body>
-      <!-- Sätter värde 2 på z-index så hamburgar-menyn överlappar underliggande element -->
-      <header class="container position-absolute z-2 top-0 start-50 translate-middle-x">
+      <!-- Sätter värde 2 på z-index i headern så att hamburgar-menyn överlappar underliggande element -->
+      <header class="container-fluid position-absolute z-2 top-0 start-50 translate-middle-x">
         <div class="col-12 bg-secondary">
           <!-- NavBar -->
-          <nav class="navbar navbar-expand-lg bg-body-primary">
+          <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-              <span class="navbar-brand mb-0 h1">Navbar</span>
-                <button 
-                  class="navbar-toggler" 
-                  type="button" 
-                  data-bs-toggle="collapse" 
-                  data-bs-target="#navbarNav" 
-                  aria-controls="navbarNav" 
-                  aria-expanded="false" 
-                  aria-label="Toggle navigation"
-                >
-              <span class="navbar-toggler-icon"></span>
+              <h1>
+                <span class="navbar-brand">NyhetsKungen</span>
+              </h1>
+              <button 
+                class="navbar-toggler" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
@@ -57,10 +59,8 @@
           </nav>
         </div>
       </header>
-    
-      <!-- Child 2 -->
-      <main class="container pt-5">
-        <!-- Nyhetsartiklar med Bootstrap Card-->
+      <main class="container pt-5 bg-white">
+        <!-- Karusell -->
         <div class="row">
           <figure class="mt-5 col-12 col-sm-6 col-md-8 pb-3 order-2 order-md-1">
             <div id="carouselExample" class="carousel carousel-fade slide">
@@ -91,80 +91,143 @@
           <!-- Sidopanel -->
           <aside class="mt-5 col-12 col-sm-6 col-md-3 order-1 order-md-2 offset-md-1">
             <article class="card">
-              <div class="card-body">
-                <h5 class="card-title">Senaste nytt!</h5>
-                <p><a href="#" class="card-link">Nyhetsartikel 4</a></p>
-                <p><a href="#" class="card-link">Nyhetsartikel 5</a></p>
-                <p><a href="#" class="card-link">Nyhetsartikel 6</a></p>
+              <div class="card-header">
+                <h4>Senaste nytt!</h4>
               </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <a href="#" class="card-link">Nyhetsartikel 4</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#" class="card-link">Nyhetsartikel 5</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#" class="card-link">Nyhetsartikel 6</a>
+                </li>
+              </ul>
             </article>
           </aside>
 
           <!-- Artikel 1 -->
           <article class="col-12 col-sm-6 col-md-4 pt-3 pb-3 order-3 order-md-3">
             <figure class="card">
-              <img src="img/hogwarts.jpeg" class="card-img-top" alt="...">
+              <img src="img/hogwarts.jpeg" class="card-img-top" alt="Harry Potter">
             </figure>
             <div class="card-body">
-              <h3 class="card-title">Hogwarts i kaos efter att ny självgående trollstav lanserats</h3>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Författare: John Doe | Datum: 2023-07-18</h6>
+              <h3 class="card-title mb-1">Hogwarts i kaos efter att ny självgående trollstav lanserats</h3>
+              <h6 class="card-subtitle mb-2">Författare: Rita Skeeter | Datum: 2023-07-18</h6>
               <p class="card-text">Kaos utbröt på Hogwarts när den senaste "självgående" trollstaven, lanserad av Weasleys Vassa Varor, fick ett oväntat genombrott i popularitet – och bokstavligen sprang iväg. Elever rapporterade att deras trollstavar började utföra besvärjelser på egen hand, och i en bisarr händelse jagades Professor McGonagall av sin egen stav i tre timmar, medan hon ropade "Jag är inte en katt längre, sluta försöka förvandla mig!" Skolan är nu i kris, och alla lektioner i förvandlingskonst är inställda tills vidare efter att ett dussintal elever oavsiktligt förvandlades till stolar under en lektion.</p>
               <a href="#" class="card-link">läs mer...</a>
             </div>
+            <!-- Använder Font Awesome ikon som länk för visa/dölja förmuläret -->
+            <details>
+              <summary>
+                  <i class="fa-regular fa-comment icon-comment" title="Kommentera artikeln"></i>
+              </summary>
+              <!-- Dolt kommentarsformulär -->
+                <div class="card-body">
+                  <form>
+                    <fieldset>
+                      <div class="mb-1 pt-2">
+                        <label for="name1" class="form-label">Namn</label>
+                        <input id="name1" type="text" name="name" class="form-control">
+                      </div>
+                      <div class="mb-1">
+                        <label for="email1" class="form-label">E-post</label>
+                        <input id="email1" type="email" name="email" class="form-control">
+                      </div>
+                      <div class="mb-1">
+                        <label for="comment1" class="form-label">Kommentar</label>
+                        <textarea id="comment1" name="comment" class="form-control" rows="3"></textarea>
+                      </div>
+                      <div class="mb-1">
+                        <button id="btn1">Skicka</button>
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+            </details>
           </article>
           <!-- Artikel 2 -->
           <article class="col-12 col-sm-6 col-md-4 pt-3 pb-3 order-4">
             <figure class="card">
-              <img src="img/bruce.webp" class="card-img-top" alt="...">
+              <img src="img/bruce.webp" class="card-img-top" alt="Bruce Wayne">
             </figure>
             <div class="card-body">
-              <h3 class="card-title">Bruce Wayne nekas inträde på Wayne Tower efter att ha glömt sitt ID - Hånad av receptionisten som "spelar svårfångad"</h3>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Författare: John Doe | Datum: 2023-07-18</h6>
+              <h3 class="card-title mb-1">Bruce Wayne nekas inträde på Wayne Tower efter att ha glömt sitt ID - Hånad av receptionisten som "spelar svårfångad"</h3>
+              <h6 class="card-subtitle mb-2">Författare: Vicki Vale | Datum: 2023-07-18</h6>
               <p class="card-text">Gotham Citys miljardär Bruce Wayne orsakade tumult i morse efter att ha nekats inträde till sitt eget kontor på Wayne Tower. Orsaken? Han glömde sitt ID-kort hemma och misslyckades med att övertyga den nyanställda receptionisten om att han verkligen är Bruce Wayne. Situationen förvärrades när receptionisten, uppenbarligen omedveten om Waynes identitet, flirtigt påstod att han "kanske skulle behöva jobba lite hårdare för att komma in". Alfred har vägrat kommentera, men ryktas ha bett Bruce att "inte gå hemifrån utan sitt passerkort - eller sitt rykte".</p>
               <a href="#" class="card-link">läs mer...</a>
             </div>
+            <!-- Använder Font Awesome ikon som länk för visa/dölja förmuläret -->
+            <details>
+              <summary>
+                  <i class="fa-regular fa-comment icon-comment" title="Kommentera artikeln"></i>
+              </summary>
+              <!-- Dolt kommentarsformulär -->
+                <div class="card-body">
+                  <form>
+                    <fieldset>
+                      <div class="mb-1 pt-2">
+                        <label for="name2" class="form-label">Namn</label>
+                        <input id="name2" type="text" name="name" class="form-control">
+                      </div>
+                      <div class="mb-1">
+                        <label for="email2" class="form-label">E-post</label>
+                        <input id="email2" type="email" name="email" class="form-control">
+                      </div>
+                      <div class="mb-1">
+                        <label for="comment2" class="form-label">Kommentar</label>
+                        <textarea id="comment2" name="comment" class="form-control" rows="3"></textarea>
+                      </div>
+                      <div class="mb-1">
+                        <button id="btn1">Skicka</button>
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+            </details>
           </article>
         </div>
-        <div class="row">
           <!-- Artikel 3 -->
           <article class="col-12 col-sm-6 col-md-8 pt-3 pb-3 order-1">
-            <div class="card">
+            
               <!-- Ny rad med kolumner för bilderna -->
               <figure class="row g-1">
-                <div class="col-6">
-                  <img src="img/eye.webp" class="card-img-top" alt="...">
+                <div class="card col-6">
+                  <img src="img/eye.webp" class="card-img-top" alt="Eye of Mordor">
                 </div>
                 <div class="col-6">
-                  <img src="img/stefan.png" class="card-img-top" alt="..." style="height: 100%">
+                  <img src="img/stefan.png" class="card-img-top" alt="Stefan Löfven frowning" style="height: 100%">
                 </div>
               </figure>
               <div class="card-body">
-                <h3 class="card-title">Sauron kastar ett getöga åt dagens politik - "En skrämmande syn på maktens korridorer"</h3>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Författare: John Doe | Datum: 2023-07-18</h6>
+                <h3 class="card-title mb-1">Sauron kastar ett getöga åt dagens politik - "En skrämmande syn på maktens korridorer"</h3>
+                <h6 class="card-subtitle mb-2">Författare: Johan Farnell | Datum: 2023-07-18</h6>
                 <p class="card-text">Sauron har nyligen kastat ett getöga åt den moderna politiska scenen och dess komplexa maktkamper. Efter att ha granskat de senaste politiska debatterna och beslut har Sauron uttryckt sin oro över hur maktspel och manipulation har blivit en central del av dagens politik. Han påpekar att den mörka sidan av politik kan vara lika skrämmande som den mest dystopiska visionen av Mordor.</p>
                 <a href="#" class="card-link">läs mer...</a>
               </div>
-
-              <!-- fontawesome ikon för att kommentara valt artikel -->
+            
+              <!-- Använder Font Awesome ikon som länk för visa/dölja förmuläret -->
               <details>
                 <summary>
-                    <i class="fa-regular fa-comment icon" title="Kommentera artikeln"></i>
+                    <i class="fa-regular fa-comment icon-comment" title="Kommentera artikeln"></i>
                 </summary>
-                <!-- Dolt kommentarsfält -->
+                <!-- Dolt kommentarsformulär -->
                   <div class="card-body">
                     <form>
                       <fieldset>
                         <div class="mb-1 pt-2">
-                          <label for="name" class="form-label">Namn</label>
-                          <input id="name" type="text" name="name" class="form-control">
+                          <label for="name3" class="form-label">Namn</label>
+                          <input id="name3" type="text" name="name" class="form-control">
                         </div>
                         <div class="mb-1">
-                          <label for="email" class="form-label">E-post</label>
-                          <input id="email" type="email" name="email" class="form-control">
+                          <label for="email3" class="form-label">E-post</label>
+                          <input id="email3" type="email" name="email" class="form-control">
                         </div>
                         <div class="mb-1">
-                          <label for="comment" class="form-label">Kommentar</label>
-                          <textarea id="comment" name="comment" class="form-control" rows="3"></textarea>
+                          <label for="comment3" class="form-label">Kommentar</label>
+                          <textarea id="comment3" name="comment" class="form-control" rows="3"></textarea>
                         </div>
                         <div class="mb-1">
                           <button id="btn1">Skicka</button>
@@ -173,23 +236,20 @@
                     </form>
                   </div>
               </details>
-            </div>
           </article>
-        </div>
       </main>
-        <footer class="container position-absolute start-50 t translate-middle-x">
-          <div class="col-12 bg-primary">
+        <footer class="container-fluid position-absolute start-50 t translate-middle-x">
+          <div class="col-12 bg-seconday" style="text-align: center;">
             <p>
-              Länkar till sociala medier (använd Font Awesome-ikoner).
-              Inkludera även kontaktinformation och eventuella andra relevanta länka
+              Länka till sociala medier (använd Font Awesome-ikoner).
+              Inkludera även kontaktinformation och eventuella andra relevanta länkar
             </p>
           </div>
         </footer>
-      
-    
-  <script 
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
-    crossorigin="anonymous"></script>
+      <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+        crossorigin="anonymous">
+      </script>
 </body>
 </html>
